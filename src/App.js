@@ -1,7 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import Webcam from "react-webcam";
+import "./App.css";
 
 function App() {
 	const webcamRef = React.useRef(null);
