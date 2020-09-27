@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Webcam from "react-webcam";
 import "./App.css";
 
@@ -19,6 +19,10 @@ function App() {
 		);
 		mediaRecorderRef.current.start();
 	}, [webcamRef, setCapturing, mediaRecorderRef]);
+
+	useEffect(() => {
+		console.log("recordedChunks", recordedChunks);
+	}, [recordedChunks]);
 
 	const handleDataAvailable = React.useCallback(
 		({ data }) => {
