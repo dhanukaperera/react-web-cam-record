@@ -1,12 +1,23 @@
 import React, { useEffect } from "react";
 import Webcam from "react-webcam";
 import "./App.css";
+import axios from "axios";
 
 function App() {
 	const webcamRef = React.useRef(null);
 	const mediaRecorderRef = React.useRef(null);
 	const [capturing, setCapturing] = React.useState(false);
 	const [recordedChunks, setRecordedChunks] = React.useState([]);
+
+	const axiosRunner = () => {
+		/* 	axios.get("https://api.thecatapi.com/v1/breeds").then((data) => {
+			console.log("data came --> ", data);
+		}); */
+	};
+
+	useEffect(() => {
+		axiosRunner();
+	}, []);
 
 	const handleStartCaptureClick = React.useCallback(() => {
 		setCapturing(true);
@@ -21,7 +32,7 @@ function App() {
 	}, [webcamRef, setCapturing, mediaRecorderRef]);
 
 	useEffect(() => {
-		console.log("recordedChunks", recordedChunks);
+		console.log("recordedChunks -->", recordedChunks);
 	}, [recordedChunks]);
 
 	const handleDataAvailable = React.useCallback(
